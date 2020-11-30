@@ -4,33 +4,29 @@
 concurrent unit testing.
 * All functionality from the specification are as expected.
 
-<<<<<<< HEAD
-##Running the application
+## Running the application
 * Run from <code>Main</code> class or from the command line.
-=======
+
 ## Running the application
 * Run from <code>Main</code> class. 
->>>>>>> 770ec019c3a84539607605528c17b5c9655c4b8a
 * Run from command line by navigating to the jar file in the target directory and running "java -jar MessageBroker.jar" 
 * Pass in 4 values comma separated to represent the number of producers, number of consumers, 
   minimum number of messages each producer to publish, and the number of threads to execute.
 * The console displays a summary total/consumed/unconsumed messages. You can find commented code in the 
 <code>MessageBrokerImpl</code> to reveal further insight to the messages published and consumed.
 
-<<<<<<< HEAD
-##Thread safety
+## Thread safety
 Thread safety applies to the following aspects:<br>
 * totalMessages, consumedMessages, and unConsumedMessages are concurrently updated across all threads as they are published and consumed.
 * Queues maintain their order of messages to ensure the oldest message is consumed in FIFO order.
 * The producers can publish new messages to the queues as the messages are simultaneously consumed.
-=======
+
 ## Thread safety
 Thread safety is important to consider for the following aspects:<br>
 * TotalPublishedMessages, ConsumedMessages, and UnconsumedMessages are concurrently updated across all threads as they are published and consumed.
 * Messages can be published and consumed from the individual queues without causing a double-publish or double-read problem.
 * Queues maintain their order of messages to ensure the oldest message is consumed from the queue in FIFO order.
 * The producers can publish new messages to the queues as the messages are consumed.
->>>>>>> 770ec019c3a84539607605528c17b5c9655c4b8a
 
 ## Design
 * LinkedBlockingQueue is used to store the messages. Each instance is unbounded and provides a thread-safe FIFO queue.
